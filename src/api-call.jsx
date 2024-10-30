@@ -2,6 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 // import styles from './styles/index.module.css'
 // import './styles/index.css'
+import logo from './assets/react.svg'
+import AdminLayout from "./components/admin-layout"
 
 export default function ApiCall() {
     const [photos, setPhotos] = useState([])
@@ -24,15 +26,17 @@ export default function ApiCall() {
     }
     
     return (
-        <div className="grid sm:grid-cols-4 gap-4">
-            {photos.map(photo => (
-                <div className="flex bg-white rounded-xl shadow-sm overflow-hidden">
-                    <img width={150} src={photo.url} className="object-fit" />
-                    <div className="flex p-4 items-center">
-                        <p>{photo.title}</p>
+        <AdminLayout>
+            <div className="grid sm:grid-cols-4 gap-4">
+                {photos.map(photo => (
+                    <div className="flex bg-white rounded-xl shadow-sm overflow-hidden">
+                        <img width={150} src={photo.url} className="object-fit" />
+                        <div className="flex p-4 items-center">
+                            <p>{photo.title}</p>
+                        </div>
                     </div>
-                </div>
-            ))}
-        </div>
+                ))}
+            </div>
+        </AdminLayout>
     )
 }
